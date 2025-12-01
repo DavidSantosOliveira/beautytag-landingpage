@@ -3,28 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautytag® - Bem-Estar Corporativo | Porque cuidar é produtivo</title>
+    <title>Beautytag® - Bem-estar Corporativo para ME e EPP | Soluções Baseadas no Modelo de Oxford</title>
+    <meta name="description" content="Transforme a produtividade da sua empresa com a Beautytag®. Soluções de bem-estar corporativo, ergonomia e benefícios digitais baseados no Modelo de Oxford. Agende uma consultoria.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Reset e Variáveis CSS */
         :root {
             --azul-principal: #1e40af;
+            --azul-medio: #3b82f6;
             --azul-claro: #dbeafe;
             --verde-destaque: #10b981;
+            --verde-claro: #a7f3d0;
             --branco: #ffffff;
             --cinza-claro: #f8fafc;
+            --cinza-medio: #e2e8f0;
             --cinza-texto: #475569;
+            --cinza-escuro: #1e293b;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            background-color: var(--branco);
+            font-family: 'Open Sans', sans-serif;
             color: var(--cinza-texto);
             line-height: 1.6;
+            background-color: var(--branco);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--cinza-escuro);
+            font-weight: 700;
+            line-height: 1.2;
         }
         
         .container {
@@ -34,323 +56,584 @@
             padding: 0 20px;
         }
         
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--verde-destaque);
+            color: var(--branco);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: #0da271;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: var(--azul-principal);
+            color: var(--branco);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1e3a8a;
+        }
+        
         /* Header */
         header {
-            background-color: var(--branco);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            background-color: var(--branco);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 15px 0;
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
         
         .logo {
             display: flex;
             align-items: center;
+            gap: 10px;
+            text-decoration: none;
         }
         
         .logo-text {
-            font-size: 24px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--azul-principal);
         }
         
         .logo-tagline {
-            font-size: 14px;
+            font-size: 0.9rem;
             color: var(--cinza-texto);
-            margin-left: 10px;
             font-style: italic;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--cinza-escuro);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--azul-principal);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--azul-principal);
+            cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--azul-claro) 0%, var(--branco) 100%);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="%2310b981" opacity="0.05"/></svg>');
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(30, 64, 175, 0.85), rgba(30, 64, 175, 0.9)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
-        }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .hero-text h1 {
-            font-size: 2.5rem;
-            color: var(--azul-principal);
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--cinza-texto);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--verde-destaque);
+            background-position: center;
             color: var(--branco);
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--branco);
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+        
+        .hero .btn {
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+            padding: 16px 40px;
         }
         
-        .cta-button:hover {
-            background-color: #0da271;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
+        /* Prova Social */
+        .social-proof {
+            padding: 70px 0;
+            background-color: var(--cinza-claro);
+            text-align: center;
         }
         
-        .hero-visual {
+        .social-proof h3 {
+            margin-bottom: 40px;
+            color: var(--cinza-escuro);
+        }
+        
+        .clients-carousel {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
         }
         
-        .hero-visual img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .client-logo img {
+            width: 150px;
+            height: 70px;
+            background-color: var(--branco);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            padding: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
-        /* Section Styles */
-        section {
-            padding: 80px 0;
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: translateY(-3px);
         }
         
-        .section-title {
+        /* Metodologia */
+        .methodology {
+            padding: 100px 0;
+        }
+        
+        .methodology h2 {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
+            font-size: 2.3rem;
         }
         
-        .section-title h2 {
-            font-size: 2rem;
+        .methodology-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .methodology-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: var(--azul-principal);
-            margin-bottom: 15px;
         }
         
-        .section-title p {
-            max-width: 700px;
-            margin: 0 auto;
+        .methodology-text p {
+            margin-bottom: 25px;
             font-size: 1.1rem;
         }
         
-        /* Scientific Proof Section */
-        .scientific-proof {
+        .methodology-visual {
             background-color: var(--cinza-claro);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
         
         .oxford-model {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .model-pillar {
+            background-color: var(--branco);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--verde-destaque);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .model-pillar h4 {
+            color: var(--azul-principal);
+            margin-bottom: 8px;
+        }
+        
+        /* Serviços */
+        .services {
+            padding: 100px 0;
+            background-color: var(--cinza-claro);
+        }
+        
+        .services h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.3rem;
+        }
+        
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
         
-        .pillar {
+        .service-card {
             background-color: var(--branco);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease;
         }
         
-        .pillar:hover {
-            transform: translateY(-5px);
+        .service-card:hover {
+            transform: translateY(-10px);
         }
         
-        .pillar-icon {
-            width: 70px;
-            height: 70px;
-            background-color: var(--azul-claro);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 20px;
-            color: var(--azul-principal);
-            font-size: 1.8rem;
-        }
-        
-        .pillar h3 {
-            color: var(--azul-principal);
-            margin-bottom: 15px;
-        }
-        
-        /* Solution Section */
-        .solution-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        
-        .solution-card {
-            background-color: var(--branco);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .solution-header {
+        .service-header {
             background-color: var(--azul-principal);
             color: var(--branco);
-            padding: 20px;
+            padding: 25px;
             text-align: center;
         }
         
-        .solution-body {
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-header h3 {
+            color: var(--branco);
+            font-size: 1.5rem;
+        }
+        
+        .service-body {
             padding: 30px;
         }
         
-        .solution-body ul {
-            list-style-type: none;
+        .service-body p {
+            margin-bottom: 20px;
         }
         
-        .solution-body li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
+        .partners-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
         }
         
-        .solution-body li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--verde-destaque);
-            font-weight: bold;
+        .partner-icon {
+            background-color: var(--azul-claro);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
         }
         
-        /* Results Section */
+        /* Resultados */
         .results {
-            background-color: var(--cinza-claro);
+            padding: 100px 0;
+        }
+        
+        .results h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.3rem;
         }
         
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
         }
         
         .result-item {
-            text-align: center;
+            background-color: var(--cinza-claro);
             padding: 30px;
-        }
-        
-        .result-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--azul-claro);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 20px;
-            color: var(--azul-principal);
-            font-size: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--verde-destaque);
         }
         
         .result-item h3 {
-            color: var(--azul-principal);
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        /* CTA Section */
-        .cta-section {
+        .check-icon {
+            color: var(--verde-destaque);
+            font-size: 1.3rem;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 100px 0;
+            background-color: var(--cinza-claro);
+        }
+        
+        .faq h2 {
             text-align: center;
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--azul-principal) 0%, #1e3a8a 100%);
-            color: var(--branco);
+            margin-bottom: 60px;
+            font-size: 2.3rem;
         }
         
-        .cta-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .cta-section p {
-            max-width: 700px;
-            margin: 0 auto 30px;
+        .faq-item {
+            background-color: var(--branco);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            font-weight: 600;
             font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--azul-principal);
         }
         
-        .cta-section .cta-button {
-            background-color: var(--verde-destaque);
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
             font-size: 1.2rem;
-            padding: 18px 40px;
+            transition: transform 0.3s;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(45deg);
         }
         
         /* Footer */
         footer {
             background-color: var(--azul-principal);
             color: var(--branco);
-            padding: 40px 0;
-            text-align: center;
+            padding: 70px 0 30px;
         }
         
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 50px;
         }
         
         .footer-logo {
-            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
             font-weight: 700;
+            margin-bottom: 15px;
         }
         
-        .footer-text {
+        .footer-tagline {
+            font-style: italic;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .footer-cta {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .footer-cta h2 {
+            color: var(--branco);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .footer-cta .btn {
+            font-size: 1.2rem;
+            padding: 18px 45px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section h4 {
+            color: var(--branco);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--branco);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: var(--branco);
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--verde-destaque);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
             font-size: 0.9rem;
             opacity: 0.8;
         }
         
-        /* Responsive Design */
+        /* Responsividade */
         @media (max-width: 992px) {
-            .hero-content {
+            .methodology-content {
                 grid-template-columns: 1fr;
             }
             
-            .oxford-model, .solution-cards, .results-grid {
-                grid-template-columns: 1fr 1fr;
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 768px) {
-            .oxford-model, .solution-cards, .results-grid {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--branco);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .services-grid {
                 grid-template-columns: 1fr;
             }
             
-            .hero-text h1 {
-                font-size: 2rem;
+            .footer-links {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 150px 0 70px;
             }
             
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .methodology h2,
+            .services h2,
+            .results h2,
+            .faq h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -360,177 +643,304 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <a href="#" class="logo">
                     <div class="logo-text">BEAUTYTAG®</div>
-                    <div class="logo-tagline">porque cuidar é produtivo</div>
-                </div>
+                </a>
+                
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#metodologia">Metodologia Oxford</a></li>
+                        <li><a href="#resultados">Resultados</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                    <a href="https://wa.me/message/4W4HZLH372Y6F1" class="btn btn-primary" target="_blank">Falar com Especialista</a>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Transforme o Bem-Estar em sua Maior Vantagem Competitiva</h1>
-                    <p>Sua empresa merece uma estratégia baseada em ciência para aumentar retenção, produtividade e engajamento.</p>
-                    <a href="https://wa.me/message/4W4HZLH372Y6F1" class="cta-button">Fale com nosso Especialista Agora!</a>
+            <h1>Transforme o Bem-Estar em sua Maior Vantagem Competitiva</h1>
+            <p>Sua empresa merece uma estratégia baseada em evidências. Aumente a retenção e a produtividade com a metodologia Beautytag®.</p>
+            <a href="https://wa.me/message/4W4HZLH372Y6F1" class="btn btn-primary" target="_blank">Solicite uma Proposta Estratégica <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Prova Social -->
+    <section class="social-proof">
+        <div class="container">
+            <h3>Empresas que já confiam na Beautytag® para cuidar de seus times:</h3>
+            <div class="clients-carousel">
+                <div class="client-logo"><img src="/img/logo-viverbem.jpeg" alt="Viver Bem Logo"></div>
+                <div class="client-logo"><img src="/img/logo-dib.jpeg" alt="DIB Logo"></div>
+                <div class="client-logo"><img src="/img/logo-farmaciadamineira.jpeg" alt="Mineira Logo"></div>
+                <div class="client-logo"><img src="/img/logo-jmodonto.jpeg" alt="JM Logo"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodologia -->
+    <section class="methodology" id="metodologia">
+        <div class="container">
+            <h2>Por que funciona? A Ciência por trás do Bem-Estar</h2>
+            <div class="methodology-content">
+                <div class="methodology-text">
+                    <h3>Modelo de Oxford para Bem-Estar no Trabalho</h3>
+                    <p>Baseamos nossa metodologia no "Model of Workplace Wellbeing" desenvolvido pela Universidade de Oxford, uma abordagem científica comprovada para melhorar a performance organizacional.</p>
+                    <p><strong>Não é apenas relaxamento. É estratégia de performance.</strong> Atacamos diretamente os três impulsionadores fundamentais do bem-estar corporativo: Saúde, Relacionamentos e Desenvolvimento.</p>
                 </div>
-                <div class="hero-visual">
-                    <!-- Placeholder for an image -->
-                    <div style="width: 100%; height: 300px; background-color: var(--azul-claro); border-radius: 10px; display: flex; justify-content: center; align-items: center; color: var(--azul-principal);">
-                        <img src="https://grupoaccord.com.br/wp-content/uploads/2023/10/shutterstock_648579007-scaled.jpg" alt="colaboradores felizes">
+                <div class="methodology-visual">
+                    <div class="oxford-model">
+                        <div class="model-pillar">
+                            <h4>Saúde Física e Mental</h4>
+                            <p>Redução de estresse, prevenção de dores, melhoria da ergonomia e saúde mental.</p>
+                        </div>
+                        <div class="model-pillar">
+                            <h4>Relacionamentos Positivos</h4>
+                            <p>Fortalecimento da cultura organizacional, comunicação e trabalho em equipe.</p>
+                        </div>
+                        <div class="model-pillar">
+                            <h4>Desenvolvimento Contínuo</h4>
+                            <p>Crescimento pessoal e profissional, habilidades para a vida e carreira.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Scientific Proof Section -->
-    <section class="scientific-proof">
+    <!-- Serviços -->
+    <section class="services" id="servicos">
         <div class="container">
-            <div class="section-title">
-                <h2>Metodologia Baseada na Ciência de Oxford</h2>
-                <p>Nossa estratégia é fundamentada nos 6 Impulsionadores de Bem-Estar desenvolvidos pela Universidade de Oxford</p>
-            </div>
-            <div class="oxford-model">
-                <div class="pillar">
-                    <div class="pillar-icon">D</div>
-                    <h3>Desenvolvimento</h3>
-                    <p>Oportunidades de crescimento pessoal e profissional que impulsionam o engajamento.</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">R</div>
-                    <h3>Relacionamentos</h3>
-                    <p>Conexões positivas no ambiente de trabalho que fortalecem a cultura organizacional.</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">S</div>
-                    <h3>Saúde</h3>
-                    <p>Cuidado integral com a saúde física e mental para equipes mais produtivas e resilientes.</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">A</div>
-                    <h3>Autonomia</h3>
-                    <p>Flexibilidade e controle sobre como o trabalho é realizado, aumentando a satisfação.</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">S</div>
-                    <h3>Segurança</h3>
-                    <p>Ambiente estável que promove confiança e reduz o estresse crônico.</p>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-icon">P</div>
-                    <h3>Propósito</h3>
-                    <p>Senso de significado e contribuição que motiva e engaja os colaboradores.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="solution">
-        <div class="container">
-            <div class="section-title">
-                <h2>Solução 360º da Beautytag®</h2>
-                <p>Oferecemos uma abordagem completa para o bem-estar corporativo, adaptada às necessidades de ME e EPP</p>
-            </div>
-            <div class="solution-cards">
-                <div class="solution-card">
-                    <div class="solution-header">
-                        <h3>Pilar 1: Experiência In Loco</h3>
+            <h2>O Ecossistema Completo para sua Empresa</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Experiência In Loco</h3>
                         <p>BeautytagDay</p>
                     </div>
-                    <div class="solution-body">
-                        <ul>
-                            <li>Combate ao estresse no ambiente de trabalho</li>
-                            <li>Prevenção de riscos à saúde</li>
-                            <li>Atividades práticas de bem-estar</li>
-                            <li>Avaliações de saúde personalizadas</li>
-                            <li>Workshops interativos</li>
-                        </ul>
+                    <div class="service-body">
+                        <p>Circuito de Ergonomia, Quiropraxia e Massagem dentro da sua empresa. Prevenção de dores e redução imediata do estresse.</p>
+                        <p>Atendimento personalizado no local de trabalho, promovendo bem-estar físico e mental para toda a equipe.</p>
                     </div>
                 </div>
-                <div class="solution-card">
-                    <div class="solution-header">
-                        <h3>Pilar 2: Benefício Contínuo</h3>
-                        <p>Plataforma Digital</p>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Benefício Digital</h3>
+                        <p>Beauty & Grooming Hub</p>
                     </div>
-                    <div class="solution-body">
-                        <ul>
-                            <li>Foco em ganhos de produtividade</li>
-                            <li>Flexibilidade para os colaboradores</li>
-                            <li>Autonomia no cuidado com a saúde</li>
-                            <li>Conteúdo personalizado</li>
-                            <li>Acompanhamento de métricas</li>
-                        </ul>
+                    <div class="service-body">
+                        <p>Conecte seu time aos melhores parceiros. Um clube de assinatura que transforma cuidado pessoal em confiança profissional.</p>
+                        <div class="partners-grid">
+                            <div class="partner-icon">💇‍♀️</div>
+                            <div class="partner-icon">💅</div>
+                            <div class="partner-icon">💈</div>
+                            <div class="partner-icon">🧘‍♀️</div>
+                            <div class="partner-icon">💆‍♂️</div>
+                            <div class="partner-icon">✂️</div>
+                        </div>
+                        <p>Cabeleireiros, Nails Designers, Barbeiros, Terapeutas e muito mais com descontos exclusivos.</p>
                     </div>
                 </div>
-                <div class="solution-card">
-                    <div class="solution-header">
-                        <h3>Pilar 3: Desenvolvimento Estratégico</h3>
+                
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Desenvolvimento Estratégico</h3>
                         <p>Consultorias</p>
                     </div>
-                    <div class="solution-body">
-                        <ul>
-                            <li>Foco em desenvolvimento de habilidades</li>
-                            <li>Fortalecimento de relacionamentos</li>
-                            <li>Estratégias de retenção de talentos</li>
-                            <li>Plano de carreira e crescimento</li>
-                            <li>Gestão de mudança organizacional</li>
-                        </ul>
+                    <div class="service-body">
+                        <p>Palestras e treinamentos em Gestão, Saúde Mental, Nutrição e Finanças para desenvolver seu time de forma estratégica.</p>
+                        <p>Programas customizados para atender às necessidades específicas da sua empresa e setor.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Results Section -->
-    <section class="results">
+    <!-- Resultados -->
+    <section class="results" id="resultados">
         <div class="container">
-            <div class="section-title">
-                <h2>Caminhos para a Performance</h2>
-                <p>Resultados mensuráveis que transformam o bem-estar em vantagem competitiva</p>
-            </div>
+            <h2>O Retorno sobre o seu Investimento</h2>
             <div class="results-grid">
                 <div class="result-item">
-                    <div class="result-icon">↑</div>
-                    <h3>Aumenta a Retenção</h3>
-                    <p>Reduza o turnover em até 40% com programas de bem-estar que valorizam seus colaboradores.</p>
+                    <h3><i class="fas fa-check-circle check-icon"></i> Aumento da Retenção de Talentos</h3>
+                    <p>Redução de turnover em até 40% com programas de bem-estar que valorizam seus colaboradores e fortalecem a cultura organizacional.</p>
                 </div>
                 <div class="result-item">
-                    <div class="result-icon">⚡</div>
-                    <h3>Potencializa a Produtividade</h3>
-                    <p>Equipes saudáveis e engajadas são até 30% mais produtivas, segundo pesquisas de Oxford.</p>
+                    <h3><i class="fas fa-check-circle check-icon"></i> Maior Produtividade e Foco</h3>
+                    <p>Equipes saudáveis e engajadas são até 30% mais produtivas, com maior capacidade de concentração e resolução criativa de problemas.</p>
                 </div>
                 <div class="result-item">
-                    <div class="result-icon">🔍</div>
-                    <h3>Fortalece o Recrutamento</h3>
-                    <p>Empresas com programas de bem-estar atraem 50% mais candidatos qualificados.</p>
+                    <h3><i class="fas fa-check-circle check-icon"></i> Redução de Custos com Afastamentos</h3>
+                    <p>Diminuição significativa de absenteísmo e custos médicos relacionados a problemas de saúde ocupacional e estresse.</p>
+                </div>
+                <div class="result-item">
+                    <h3><i class="fas fa-check-circle check-icon"></i> Fortalecimento da Marca Empregadora</h3>
+                    <p>Empresas com programas de bem-estar atraem 50% mais candidatos qualificados e melhoram sua reputação no mercado.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- FAQ -->
+    <section class="faq" id="faq">
         <div class="container">
-            <h2>Pronto para transformar o bem-estar em resultados?</h2>
-            <p>Nossos especialistas estão preparados para desenvolver uma proposta estratégica personalizada para sua empresa.</p>
-            <a href="https://wa.me/message/4W4HZLH372Y6F1" class="cta-button">Solicite uma Proposta Estratégica</a>
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>A Beautytag atende empresas de qual tamanho?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nosso foco principal são Micro e Pequenas Empresas (ME e EPP), mas atendemos empresas de todos os portes. Temos soluções escaláveis que podem ser adaptadas desde startups com 10 funcionários até corporações com centenas de colaboradores.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funciona o BeautytagDay?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O BeautytagDay é uma experiência presencial na sua empresa onde montamos um circuito com diferentes estações: quiropraxia, massagem, ergonomia, avaliação postural e orientações de saúde. Nossa equipe especializada vai até sua empresa com toda a estrutura necessária para atender seus colaboradores durante o horário de trabalho.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Os serviços do Hub têm desconto para colaboradores?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! O Beauty & Grooming Hub oferece descontos exclusivos para colaboradores das empresas parceiras em uma rede selecionada de estabelecimentos premium. Os descontos variam de 15% a 30% dependendo do serviço e parceiro, sempre com qualidade garantida.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Qual o tempo mínimo de contrato?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oferecemos planos flexíveis a partir de 3 meses, mas nossos melhores resultados são observados em contratos anuais que permitem uma implementação estratégica completa e acompanhamento contínuo dos indicadores de bem-estar.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer id="contato">
         <div class="container">
+            <div class="footer-cta">
+                <h2>Pronto para ter uma equipe mais feliz e produtiva?</h2>
+                <a href="https://wa.me/message/4W4HZLH372Y6F1" class="btn btn-primary" target="_blank">Fale com nosso Especialista Agora!</a>
+            </div>
+            
             <div class="footer-content">
-                <div class="footer-logo">BEAUTYTAG®</div>
-                <div class="footer-text">porque cuidar é produtivo</div>
-                <div class="footer-text">© 2025 Beautytag®. Todos os direitos reservados.</div>
+                <div>
+                    <div class="footer-logo">BEAUTYTAG®</div>
+                    <div class="footer-tagline">porque cuidar é produtivo</div>
+                    <p>Transformamos o bem-estar em vantagem competitiva para sua empresa.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Links Úteis</h4>
+                        <ul>
+                            <li><a href="#inicio">Início</a></li>
+                            <li><a href="#servicos">Serviços</a></li>
+                            <li><a href="#metodologia">Metodologia</a></li>
+                            <li><a href="#resultados">Resultados</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#">Política de Privacidade</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contato</h4>
+                        <ul>
+                            <li>Estrada da Cascata 181</li>
+                            <li>Nogueira - Petrópolis - RJ</li>
+                            <li>CNPJ: 59.998.829/0001-78</li>
+                            <li><a href="https://wa.me/message/4W4HZLH372Y6F1">WhatsApp: (24) 2221-1254</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Redes Sociais</h4>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/beautytag.oficial?igsh=MWt6Z3pmcWd2dTl2MA==" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.tiktok.com/@beautytag?_r=1&_t=ZM-91rBWy1Y9eu" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.facebook.com/share/16WRS268dY/" class="social-icon"><i class="fab fa-facebook-f"></i></a>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Beautytag® - Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                const toggle = item.querySelector('.faq-toggle');
+                
+                answer.classList.toggle('active');
+                toggle.classList.toggle('active');
+                toggle.textContent = toggle.classList.contains('active') ? '−' : '+';
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
